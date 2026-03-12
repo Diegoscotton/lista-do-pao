@@ -85,7 +85,22 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     };
 
-    shareBtn.onclick = () => {
+    shareBtn.onclick = async () => {
+        // Tentativa de compartilhamento nativo do sistema (Android/iOS)
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'Lista do pão',
+                    text: 'Confira minha lista de compras colaborativa!',
+                    url: window.location.href,
+                });
+                return; // Se funcionou, não abre o modal
+            } catch (err) {
+                console.log('Share cancelado ou erro');
+            }
+        }
+
+        // Fallback: Abre o modal com QR Code
         new QRious({
             element: qrCanvas,
             value: window.location.href,

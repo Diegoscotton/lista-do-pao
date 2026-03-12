@@ -34,10 +34,11 @@ body {
 .app-wrapper {
     max-width: var(--container-max-width);
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 32px 16px; /* Reduzindo padding lateral no mobile */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* Evita scroll lateral indesejado */
 }
 
 /* Header */
@@ -99,10 +100,11 @@ body {
 }
 
 .main-input {
-    flex: 1;
+    flex: 2; /* Garante que ocupe o espaço disponível */
+    min-width: 0; /* CRITICAL: Permite que o input encolha abaixo do tamanho do placeholder */
     background: var(--input-bg);
     border: none;
-    padding: 16px 20px;
+    padding: 16px 16px;
     border-radius: var(--border-radius-main);
     font-size: 1rem;
     outline: none;
@@ -114,7 +116,8 @@ body {
 }
 
 .qty-input {
-    width: 50px; /* Reduzindo largura da quantidade */
+    width: 45px; /* Ainda mais compacto */
+    flex-shrink: 0;
     background: var(--input-bg);
     border: none;
     padding: 16px 0;
@@ -126,16 +129,17 @@ body {
 }
 
 .btn-add {
+    flex-shrink: 0;
     background: var(--accent-color);
     color: var(--accent-text);
     border: none;
-    padding: 16px 20px; /* Reduzindo padding lateral */
+    padding: 16px 20px;
     border-radius: var(--border-radius-main);
     font-weight: 700;
-    font-size: 0.95rem; /* Fonte levemente menor */
+    font-size: 0.95rem;
     cursor: pointer;
     transition: transform 0.1s;
-    white-space: nowrap; /* Garante que 'Add' não quebre */
+    white-space: nowrap;
 }
 
 .btn-add:active {
