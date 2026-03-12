@@ -93,7 +93,7 @@ body {
 /* Form Section */
 .form-container {
     display: flex;
-    gap: 12px;
+    gap: 8px; /* Reduzindo gap para caber no mobile */
     align-items: center;
     margin-bottom: 24px;
 }
@@ -114,7 +114,7 @@ body {
 }
 
 .qty-input {
-    width: 60px;
+    width: 50px; /* Reduzindo largura da quantidade */
     background: var(--input-bg);
     border: none;
     padding: 16px 0;
@@ -129,12 +129,13 @@ body {
     background: var(--accent-color);
     color: var(--accent-text);
     border: none;
-    padding: 16px 28px;
+    padding: 16px 20px; /* Reduzindo padding lateral */
     border-radius: var(--border-radius-main);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem; /* Fonte levemente menor */
     cursor: pointer;
     transition: transform 0.1s;
+    white-space: nowrap; /* Garante que 'Add' não quebre */
 }
 
 .btn-add:active {
@@ -354,12 +355,13 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 1000;
+    background: rgba(0,0,0,0.7); /* Fundo mais escuro para destaque */
+    z-index: 10000; /* Z-index máximo para o S23 Ultra */
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 24px;
+    backdrop-filter: blur(4px); /* Efeito blur para foco */
 }
 
 .modal-card {
