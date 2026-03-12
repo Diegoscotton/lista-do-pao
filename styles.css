@@ -1,0 +1,389 @@
+/**
+ * Lista do pão - Rebranding & UI Premium
+ * Fidelidade Total ao Mockup: Cores, Espaçamentos e Interações
+ * Autoria: [Fosfo virtual](https://fosfo.com.br) - 12/03/2026 09:26
+ */
+
+:root {
+    --bg-color: #ffffff;
+    --text-primary: #1C1F23;
+    --text-secondary: #8E959F;
+    --border-color: #E2E4E7;
+    --accent-color: #C5F08C; /* Verde limão suave do mockup */
+    --accent-text: #1C1F23;
+    --input-bg: #F7F9FB;
+    --font-family: 'Inter', sans-serif;
+    --border-radius-main: 16px;
+    --container-max-width: 500px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-family);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-wrapper {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 40px 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+}
+
+.presence-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-top: -2px;
+}
+
+.btn-share-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px; /* Arredondado similar ao botão */
+    border: 1px solid var(--border-color);
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: all 0.2s;
+}
+
+.btn-share-circle:hover {
+    background: #f0f2f5;
+}
+
+/* Form Section */
+.form-container {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.main-input {
+    flex: 1;
+    background: var(--input-bg);
+    border: none;
+    padding: 16px 20px;
+    border-radius: var(--border-radius-main);
+    font-size: 1rem;
+    outline: none;
+    color: var(--text-primary);
+}
+
+.main-input::placeholder {
+    color: #9DA3AE;
+}
+
+.qty-input {
+    width: 60px;
+    background: var(--input-bg);
+    border: none;
+    padding: 16px 0;
+    border-radius: var(--border-radius-main);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    outline: none;
+}
+
+.btn-add {
+    background: var(--accent-color);
+    color: var(--accent-text);
+    border: none;
+    padding: 16px 28px;
+    border-radius: var(--border-radius-main);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.btn-add:active {
+    transform: scale(0.96);
+}
+
+/* Section Labels */
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #9DA3AE;
+    letter-spacing: 0.05em;
+    margin: 32px 0 16px 0;
+    text-transform: uppercase;
+}
+
+/* Suggestions Slider */
+.bubbles-slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+}
+
+.bubbles-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.bubble {
+    padding: 10px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.bubble::before {
+    content: "+ ";
+    color: var(--accent-color); /* Verde conforme imagem 2 */
+    font-weight: 800;
+}
+
+/* Item List */
+.list-section {
+    flex: 1;
+}
+
+.list-container {
+    list-style: none;
+}
+
+.item-row {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.checkbox-custom {
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    appearance: none;
+    cursor: pointer;
+    background: white;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.checkbox-custom:checked {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.checkbox-custom:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--accent-text);
+}
+
+.item-info {
+    flex: 1;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+}
+
+.item-category {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.purchased .item-name {
+    text-decoration: line-through;
+    color: #BDC1C6;
+}
+
+.item-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.qty-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #BDC1C6;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    color: var(--border-color);
+    font-size: 1.4rem;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.2s;
+}
+
+.btn-delete:hover {
+    color: #F4212E;
+}
+
+/* Footer Section */
+.footer {
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.btn-clear {
+    width: 100%;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-main);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-clear:hover {
+    background: #F8F9FA;
+}
+
+.credits {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.credits strong {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Toast Notification */
+.toast-box {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    width: 90%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.toast-item {
+    background: #1C1F23;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: toastPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    text-align: center;
+}
+
+.toast-item.error { background: #F4212E; }
+
+@keyframes toastPop {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.modal-card {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 28px;
+    padding: 32px;
+    text-align: center;
+}
+
+.hidden { display: none !important; }
+
+/* Desktop Adjustments */
+@media (min-width: 1024px) {
+    body {
+        background-color: #F8F9FA;
+    }
+    .app-wrapper {
+        margin: 40px auto;
+        background: white;
+        min-height: auto;
+        border-radius: 32px;
+        box-shadow: 0 40px 100px rgba(0,0,0,0.05);
+        padding: 48px 40px;
+    }
+}

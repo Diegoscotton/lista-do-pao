@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lista do pão | Inteligente & Colaborativa</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="Lista do pão - Sua lista de compras colaborativa, simples, rápida e em tempo real.">
+    <meta name="author" content="Fosfo virtual - https://fosfo.com.br">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#C5F08C">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+</head>
+<body>
+    <div id="app" class="app-wrapper">
+        <header class="header">
+            <div class="logo-container">
+                <h1 class="logo">Lista do pão</h1>
+                <span id="presence-count" class="presence-badge hidden">1 online</span>
+            </div>
+            <div class="header-actions">
+                <button id="history-btn" class="btn-share-circle" title="Histórico">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+                </button>
+                <button id="share-btn" class="btn-share-circle" title="Compartilhar">
+                    <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+                </button>
+            </div>
+        </header>
+
+        <main class="content-body">
+            <!-- Add Item Section -->
+            <section class="add-section">
+                <div class="form-container">
+                    <input type="text" id="item-name" class="main-input" placeholder="Adicionar item..." required autocomplete="off">
+                    <input type="number" id="item-qty" class="qty-input" value="1" min="1">
+                    <button id="add-btn" class="btn-add">Add</button>
+                </div>
+
+                <div class="suggestions-area">
+                    <h3 class="section-label">FREQUENTES</h3>
+                    <div id="suggestions-bubbles" class="bubbles-slider"></div>
+                </div>
+            </section>
+
+            <!-- List Containers -->
+            <section class="list-section">
+                <h2 class="section-label">PARA COMPRAR</h2>
+                <ul id="pending-list" class="list-container"></ul>
+                
+                <h2 class="section-label">COMPRADOS</h2>
+                <ul id="purchased-list" class="list-container purchased"></ul>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <button id="clear-list-btn" class="btn-clear">Limpar Lista</button>
+            <p class="credits">Desenvolvido por <strong>Fosfo virtual</strong></p>
+        </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="share-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h3>Compartilhar Lista</h3>
+            <p class="modal-desc" style="margin: 16px 0; color:#8E959F; font-size: 0.9rem;">Aponte a câmera para o QR Code abaixo:</p>
+            <div id="qrcode-container" style="display: flex; justify-content: center; margin-bottom: 24px;">
+                <canvas id="qr-canvas"></canvas>
+            </div>
+            <button id="copy-link-btn" class="btn-clear" style="margin-bottom: 12px; border-color:#E2E4E7">Copiar Link</button>
+            <button class="btn-clear close-share-modal" style="border:none">Fechar</button>
+        </div>
+    </div>
+
+    <div id="history-modal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <h3>Histórico Semanal</h3>
+            <div id="history-content" style="margin: 20px 0; max-height: 300px; overflow-y: auto;"></div>
+            <button class="btn-clear close-modal">Fechar</button>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-box"></div>
+
+    <!-- Scripts -->
+    <script src="storage.js"></script>
+    <script src="categories.js"></script>
+    <script src="offline.js"></script>
+    <script src="realtime.js"></script>
+    <script src="pwa.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

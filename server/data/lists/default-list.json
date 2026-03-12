@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": "1773334019232",
+      "name": "Leite",
+      "qty": 1,
+      "category": "Laticínios",
+      "purchased": false,
+      "createdAt": 1773334019232
+    }
+  ]
+}
